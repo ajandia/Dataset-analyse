@@ -1,0 +1,133 @@
+<html>
+
+<head>
+    <title>APPLY REGEX</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <style>
+        .frame {
+            width: auto;
+            height: auto;
+            border: 3px solid #ccc;
+            background: #eee;
+            margin: auto;
+            padding: 15px 25px;
+        }
+        .isDisabled {
+            color: currentColor;
+            cursor: not-allowed;
+            opacity: 0.5;
+            text-decoration: none;
+          }
+    </style>
+</head>
+
+<body>
+    <div class="mb-5">
+        <h1 align="center">Python Flask Api : Regex apply</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="/" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Class</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="input_class" required>
+                                        <option value="none" selected disabled hidden>Selectionnez la classe</option>
+                                        {% for class in keywords_class %}
+                                        <option value="{{ class }}">{{ class }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if 'input_class' in values.errors %}
+                                    <p class="text-danger mt-2">
+                                        {{ values.errors['input_class'] }}
+                                    </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Text class</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="input_text_class" required>
+                                        <option value="none" selected disabled hidden>Selectionnez le texte de classe
+                                        </option>
+                                        {% for text in text_class %}
+                                        <option value="{{ text }}">{{ text }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if 'input_text_class' in values.errors %}
+                                    <p class="text-danger mt-2">
+                                        {{ values.errors['input_text_class'] }}
+                                    </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Regex</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" multiple name="input_liste_regex" required>
+                                        {% for regex in liste_regex %}
+                                        <option value="{{ regex[0] }}">{{ regex[1] }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if 'input_liste_regex' in values.errors %}
+                                    <p class="text-danger mt-2">
+                                        {{ values.errors['input_liste_regex'] }}
+                                    </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Nombre de mots chunk</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="input_nbr_mot_chunk" required>
+                                        <option value="none" selected disabled hidden>Selectionnez le chunk </option>
+                                        {% for chunk in nbr_mot_chunk %}
+                                        <option value="{{ chunk }}">{{ chunk }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if 'input_nbr_mot_chunk' in values.errors %}
+                                    <p class="text-danger mt-2">
+                                        {{ values.errors['input_nbr_mot_chunk'] }}
+                                    </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <input type="submit" class="btn btn-success" value='Appliquer' />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <a role="link" href="{{url_for('export', filename=file_json, type='json')}}" {% if not file_json %} style="pointer-events: none" disabled aria-disabled="true" {% endif %} type="button"
+                            class="btn btn-primary">Export JSON</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a role="link" href="{{url_for('export', filename=file_txt, type='txt')}}" {% if not file_txt %} style="pointer-events: none" disabled aria-disabled="true" {% endif %} type="button"
+                            class="btn btn-success">Export TXT</a>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <div class="frame">
+                            <img src="{{ plot_image }}" height="500" width="500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

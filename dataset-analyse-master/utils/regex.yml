@@ -1,0 +1,6 @@
+liste_adj : r'(esp(è|e)ce de|sales?|bande d(e|\')|putains? de|vieux|merdeux|gros(ses?)?|pe?tite?s?|(une?|de) vraie?s?|sombres?|pauvres?|quel|sacré(e)?)+'
+liste_mot : r'(vtf|va te faire|ta race|va chier|fuck|je t\'emmerde)'
+liste_intj : r'(vsy|va(z|s)(-)?y|alle(z|r)|donc|bon|va|te|ptn|putain)'
+liste_post_kw : r'(sal(e)?|ptn|comme (lui|elle))'
+liste_pron : r'(toi|vos|ton|tes|aussi)?'
+no_toxic : r'^((j\'|tu|il) (as?|aurai(s|t)?) dit)'

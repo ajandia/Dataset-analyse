@@ -1,0 +1,28 @@
+{
+    "keywords_class": {
+        "words_diffamation" : "diffamation",
+        "words_sexuel" : "insulte-sex",
+        "words_personnel" : "insulte-perso",
+        "wwords_menace" : "menace",
+        "words_racisme" : "racisme-religion",
+        "words_homophobie" : "homophobie"
+    },
+    "text_class" : {
+        "text_diffamation" : "defamation",
+        "text_personnel" : "insulte_personnelle",
+        "text_sexuel" : "insulte-sexuelle-sexisme",
+        "text_homophobie" : "insulte_lgbt",
+        "text_racisme" : "racisme-religion",
+        "text_menace" : "menace",
+        "text_notoxic" : "no_toxic"
+    },
+    "liste_regex": {
+        "liste_adj" : "adjectifs avant insulte",
+        "liste_mot" : "actions injurieuses avant l'insulte",
+        "liste_intj" : "mots ayant un rôle d'interjection",
+        "liste_post_kw" : "mots que l'on peut trouver après une insulte",
+        "liste_pron" : "pronoms",
+        "no_toxic" :"termes pour les phrases non toxiques"
+    },
+    "nbr_mot_chunk": [2,3,4,5,6]
+}
